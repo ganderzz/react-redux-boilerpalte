@@ -1,10 +1,12 @@
 import React from "react";
 
+import Header from "./Components/Header";
+
 const App = React.createClass({
 	render() {
 		return (
 			<section style={{ textAlign: "center" }}>
-				<h1>Hello!</h1>
+				<Header>Hello!</Header>
 			</section>
 		);
 	}
