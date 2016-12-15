@@ -10,7 +10,6 @@
     const express   = require("express");
     const open      = require("open");
     const path      = require("path");
-    const colors    = require("colors");
 
     const app  = express();
 

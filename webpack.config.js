@@ -1,10 +1,18 @@
 var webpack = require("webpack");
+var path = require("path");
 
 module.exports = {
     entry: "./src/index.js",
     output: {
         path: __dirname + "/dist",
-        filename: "bundle.js"
+        filename: "main.js"
+    },
+    context: path.resolve("./"),
+    resolve: {
+        root: [
+            path.resolve("./src")
+        ],
+        extensions: ["", ".js", ".jsx"]
     },
     module: {
         loaders: [
@@ -18,4 +26,7 @@ module.exports = {
           }
         ]
     },
+    noParse: [
+        path.resolve("./node_modules")
+    ],
 };
