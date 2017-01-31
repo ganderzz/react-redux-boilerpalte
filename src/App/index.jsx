@@ -6,7 +6,7 @@ const App = React.createClass({
 	render() {
 		return (
 			<section style={{ textAlign: "center" }}>
-				<Header>Hello!</Header>
+				<Header>Welcome to React-Redux Boilerplate!</Header>
 			</section>
 		);
 	}

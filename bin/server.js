@@ -20,7 +20,7 @@
     const LOCATION = `http://127.0.0.1:${PORT}`;
 
     // Bundle contains { dev: developmentConfiguration, hot: hotReloadConfiguration}
-    const bundle = require("./bundle.js")();
+    const bundle = require("./bundle.js")(LOCATION);
 
     // Attach middlewares
     // This will intersect all requests to /build and route
@@ -34,7 +34,7 @@
     });
 
     // Serve app on port
-    const server = app.listen(PORT, function() {
+    app.listen(PORT, function() {
         // Open app in the default browser
         open(LOCATION);
 
@@ -42,16 +42,4 @@
         console.log("Running at: " + LOCATION);
         console.log("==================================");
     });
-
-    function closeServer() {
-        console.log("Bye");
-        server.close(function() {
-            process.exit(0); // Exit Node
-        });  // Close Express server
-    }
-
-    process.on("SIGTERM", closeServer);
-    process.on("SIGINT", closeServer);
-    process.on("exit", closeServer);
-    process.on("SIGHUP", closeServer);
 })();
