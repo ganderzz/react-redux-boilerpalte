@@ -2,31 +2,30 @@ var webpack = require("webpack");
 var path = require("path");
 
 module.exports = {
-    entry: "./src/index.js",
+    entry: "./index.jsx",
     output: {
         path: __dirname + "/dist",
+        publicPath: "/",
         filename: "main.js"
     },
-    context: path.resolve("./"),
+    context: path.resolve("./src"),
     resolve: {
-        root: [
-            path.resolve("./src")
+        modules: [
+            path.join(__dirname, "src"),
+            "node_modules"
         ],
-        extensions: ["", ".js", ".jsx"]
+        extensions: [".js", ".jsx"]
     },
     module: {
-        loaders: [
+        rules: [
           {
             test: /.jsx?$/,
             loader: "babel-loader",
             exclude: /node_modules/,
             query: {
-              presets: ["es2015", "react"]
+                presets: ["es2015", "react"]
             }
           }
         ]
-    },
-    noParse: [
-        path.resolve("./node_modules")
-    ],
+    }
 };
