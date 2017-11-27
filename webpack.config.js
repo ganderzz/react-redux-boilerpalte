@@ -1,11 +1,15 @@
 var webpack = require("webpack");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 var path = require("path");
 
 module.exports = {
-    entry: "./index.jsx",
+    entry: [
+        "babel-polyfill",
+        "./index.tsx",
+    ],
     output: {
-        path: __dirname + "/dist",
-        publicPath: "/",
+        path: path.resolve(__dirname, "dist"),
+        publicPath: "./",
         filename: "main.js"
     },
     context: path.resolve("./src"),
@@ -14,7 +18,7 @@ module.exports = {
             path.join(__dirname, "src"),
             "node_modules"
         ],
-        extensions: [".js", ".jsx"]
+        extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
     module: {
         rules: [
@@ -22,10 +26,19 @@ module.exports = {
             test: /.jsx?$/,
             loader: "babel-loader",
             exclude: /node_modules/,
-            query: {
-                presets: ["es2015", "react"]
-            }
+          },
+          {
+              test: /.(ts|tsx)$/,
+              loader: ["babel-loader", "ts-loader"],
+              exclude: /node_modules/,
           }
         ]
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: "index.html",
+            template: path.resolve(__dirname, "public", "index.html"),
+            inject: true
+        }),
+    ],
 };

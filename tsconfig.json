@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "es5",
+    "module": "commonjs",
+    "allowJs": true,
+    "jsx": "preserve",
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Module Resolution Options */
+    "types": [
+      "react",
+      "react-dom"
+    ],
+    "allowSyntheticDefaultImports": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true
+  }
+}
