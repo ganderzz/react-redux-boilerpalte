@@ -5,19 +5,15 @@ var path = require("path");
 module.exports = {
     entry: [
         "babel-polyfill",
-        "./index.tsx",
+        path.resolve("src", "index.tsx"),
     ],
     output: {
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve("dist"),
         publicPath: "./",
-        filename: "main.js"
+        filename: "bundle.js"
     },
-    context: path.resolve("./src"),
+    context: path.resolve(__dirname),
     resolve: {
-        modules: [
-            path.join(__dirname, "src"),
-            "node_modules"
-        ],
         extensions: [".js", ".jsx", ".ts", ".tsx"]
     },
     module: {
@@ -32,12 +28,11 @@ module.exports = {
               loader: ["babel-loader", "ts-loader"],
               exclude: /node_modules/,
           }
-        ]
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
-            filename: "index.html",
-            template: path.resolve(__dirname, "public", "index.html"),
+            template: path.resolve("public", "index.html"),
             inject: true
         }),
     ],
