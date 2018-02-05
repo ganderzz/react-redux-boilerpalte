@@ -3,13 +3,13 @@ var path = require("path");
 
 var newOptions = {
     devServer: {
-        publicPath: "/dist/",
+        publicPath: "/",
         headers: {
             "Access-Control-Allow-Origin": "*"
         },
         port: 3000,
         open: true,
-        openPage: "dist",
+        openPage: "",
         compress: true,
         allowedHosts: ["*"]
     }
