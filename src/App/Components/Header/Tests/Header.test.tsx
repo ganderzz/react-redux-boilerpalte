@@ -1,5 +1,5 @@
 import * as React from "react";
-import { render, Simulate, wait } from "react-testing-library";
+import { render } from "react-testing-library";
 import { Header } from "../Header";
 
 test("Test Header", () => {

@@ -1,6 +1,6 @@
 ## React Boilerplate
 
-A React boilerplate I use to create React apps. Comes opinionated.
+A React boilerplate. Comes opinionated.
 
 **Tools:**
 * React
@@ -8,7 +8,7 @@ A React boilerplate I use to create React apps. Comes opinionated.
 * Redux
 * Prettier
 * Webpack
-* Jest
+* Jest (react-testing-library)
 
 
 ### How To

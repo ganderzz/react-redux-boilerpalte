@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
+const OUTPUT_PATH = path.resolve("dist");
 
 module.exports = {
   entry: {
@@ -10,11 +11,12 @@ module.exports = {
     main: ["babel-polyfill", path.resolve(ROOT_DIR, "src", "index.tsx")],
   },
   output: {
-    path: path.resolve("dist"),
+    path: OUTPUT_PATH,
     publicPath: "./",
-    filename: "[name].bundle.js",
+    filename: "[name].[hash].js",
+    pathinfo: false
   },
-  context: path.resolve(ROOT_DIR),
+  context: ROOT_DIR,
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
