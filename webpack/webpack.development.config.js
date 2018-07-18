@@ -10,7 +10,6 @@ const newOptions = {
     port: 3000,
     open: true,
     openPage: "",
-    compress: true,
     allowedHosts: ["*"],
   },
 };
